@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Manicure, pedicure, zabiegi oczyszczające, usuwanie trądziku, zmarszczek, blizn i rozstępów">
     <meta name="description"
         content="La Pelle Nowoczesna Kosmetologia gabinet kosmetyczny w Tarnowie. Manicure, pedicure, zabiegi oczyszczające, usuwanie trądziku, zmarszczek, blizn i rozstępów. ">
     <meta property="og:title" content="La Pelle Nowoczesna Kosmetologia Agnieszka Trylińska Tarnów">
@@ -19,6 +20,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link href="dist/css/hamburgers.min.css"  rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="dist/css/main.min.css">
 </head>
 
@@ -35,7 +37,7 @@
         </button>
         <div class="navbar__links">
             <a href="index.html#" class="navbar__link">home</a>
-            <a href="#offers" class="navbar__link">oferta</a>
+            <a href="index.html#offers" class="navbar__link">oferta</a>
             <a href="offers.html" class="navbar__link">cennik</a>
             <a href="index.html#gallery" class="navbar__link">galeria</a>
             <a href="index.html#about-me" class="navbar__link">portfolio</a>
@@ -70,12 +72,12 @@
 
         <section id="offers" class="offers wrapper">
             <div class="heading">
-                <h2 class="heading-h2">Oferta</h2>
+                <h2  class="heading-h2">Oferta</h2>
             </div>
 
             <div class="offers__box">
-                <div class="offers__box-accordions">
-                    <div class="accordion-box">
+                <div class="offers__box-accordions" data-aos="fade-right" data-aos-delay="200">
+                    <div class="accordion-box" >
                         <button class="accordion-btn">
                             Stylizacja brwi i rzęs
                             <i class="fas fa-chevron-down accordion-arrow"></i>
@@ -190,7 +192,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="offers__box-description">
+                <div class="offers__box-description" data-aos="fade-left" data-aos-delay="200">
                     <h1 class="offers__h1">Salon kosmetyczny La Pelle</h1>
                     <p class="offers__description">W ofercie gabinetu kosmetologicznego <strong>La Pelle Nowoczesna
                             Kosmetologia Agnieszka Trylińska</strong> znajdziesz <strong><a
@@ -217,7 +219,7 @@
 
         <section id="gallery" class="gallery">
             <div class="heading wrapper">
-                <h2 class="heading-h2">Galeria</h2>
+                <h2  class="heading-h2">Galeria</h2>
             </div>
             <div class="gallery__imgs wrapper">
                 <img loading='lazy' src="/dist/img/gallery/galeria1.jpg" alt="Gabinet zabiegowy" class="gallery__imgs-item">
@@ -229,11 +231,11 @@
 
         <section id="about-me" class="about-me wrapper">
             <div class="heading">
-                <h2 class="heading-h2">O mnie</h2>
+                <h2 class="heading-h2" class="heading-h2">O mnie</h2>
             </div>
 
             <div class="about-me__box">
-                <div class="about-me__box-description">
+                <div class="about-me__box-description" data-aos="fade-right" data-aos-delay="200">
                     <p class="heading">Agnieszka Trylińska</p>
                     <p class="heading-under">Lic. kosmetolog</p>
                     <div class="description-box">
@@ -260,13 +262,13 @@
                         </p>
                     </div>
                 </div>
-                <img src="/dist/img/about_me.jpg" alt="" class="about-me__box-gallery-image">
+                <img data-aos="fade-left" data-aos-delay="200" src="/dist/img/about_me.jpg" alt="" class="about-me__box-gallery-image">
             </div>
         </section>
 
         <section id="contact" class="contact">
     <div class="heading wrapper">
-        <h2 class="heading-h2">Kontakt</h2>
+        <h2  class="heading-h2">Kontakt</h2>
     </div>
     <div class="contact__box wrapper">
         <div class="contact__box-info">
@@ -322,7 +324,7 @@
 </section>
 
 <section class="socials wrapper">
-    <div class="social">
+    <div class="social " data-aos="fade-up" data-aos-delay="100">
         <a class="social__link" href="https://www.facebook.com/nowoczesnakosmetologialapelle" target="_blank"><i
                 class="fab fa-facebook"></i></a>
         <a class="social__link" href="https://www.instagram.com/lapelle_nowoczesnakosmetologia/" target="_blank"><i
@@ -333,7 +335,7 @@
 <section id="map" class="map">
     <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.077567910527!2d20.982975515765474!3d50.00990132689097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473d8537680e0f9b%3A0xc5bf3c05cc431c9c!2sLa%20Pelle%20Nowoczesna%20Kosmetologia%20Agnieszka%20Tryli%C5%84ska!5e0!3m2!1spl!2spl!4v1624455351818!5m2!1spl!2spl"
-        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        allowfullscreen="" loading="lazy"></iframe>
 </section>
     </main>
     <footer class="footer">
@@ -346,7 +348,17 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="../dist/js/slicksettings.min.js"></script>
 <script src="https://kit.fontawesome.com/eb8c3f2a9c.js" crossorigin="anonymous"></script>
-<script src="../dist/js/main.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+      startEvent: 'DOMContentLoaded',
+      offset: 120,
+      once: true
+
+
+  });
+</script>
+<script src="/dist/js/main.min.js"></script>
 </body>
 
 </html>
