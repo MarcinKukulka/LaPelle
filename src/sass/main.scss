@@ -1,0 +1,861 @@
+@import 'colors';
+@import 'reset';
+@import 'components';
+@import 'hamburgers';
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+body{
+    font-family: 'Playfair Display', serif;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+// NAVIGATION
+.nav{
+    background-color: $base-color;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+.navbar{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    
+    &__logo{
+        height: 70px;
+        padding-left: 1em;
+        
+    }
+
+    &__links{
+        position: fixed;
+        top: 80px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: $base-color;
+        transform: translateX(100%);
+        opacity: 0;
+        overflow: hidden;
+        z-index: 100;
+        transition: transform .4s, opacity .4s;
+
+        &--active{
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        
+       
+    }
+
+    &__link{
+        text-transform: uppercase;
+        color: $secondary-gold;
+        text-decoration: none;
+        padding: 1.5em 1em;
+        font-size: 1.8rem;
+        font-weight: 600;
+        overflow: hidden;  
+        
+        
+        &::after{
+            content: '';
+            display: block;
+            height: .5em;
+            border-bottom: 2px solid $secondary-gold;
+            width: 100%;
+            transform: scaleX(0);
+            transition: .3s; 
+            
+           }
+           
+           &:hover::after{
+            transform: scaleX(100%);
+           }
+    }
+   
+}
+
+.header {
+    
+    &__slide-img {
+       
+        height: 30vh;
+        width: 100vw;
+        object-fit: cover;
+        
+    }
+
+    &__slide-heading{
+       position: absolute;
+       top: 85%;
+       left: 30%;
+       transform: translate(-50%, -50%);  
+    }
+    
+    
+    &__slide-txt{
+        padding: .5em 1.4em;
+        font-size: 1.8rem;
+        font-family: 'Playfair Display';
+        font-style: italic;
+        font-weight: 500;
+        color: $base-color;
+        opacity: 1;
+        z-index: 100;
+
+        
+    }
+
+    .slick-prev, .slick-next{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba($base-color, $alpha: .5);
+        color: #ffffff;
+        padding: .6em .2em;
+        z-index: 1;
+        font-size: 3rem;
+        border: none;
+        cursor: pointer;
+    }
+
+    .slick-prev{
+        left: 0;
+    }
+    .slick-next{
+        right: 0;
+    }
+}
+
+// OFERTA
+
+.offers, .treatments{
+    &__box{
+        display: flex;
+        flex-direction: column-reverse;
+        margin: 0 3em 8em;
+        
+        
+    }
+    &__h1{
+
+        margin-bottom: 1em;
+        font-size: 2rem;
+        color: $secondary-gold;
+    }
+
+    &__description {
+        font-size: 1.5rem;
+        padding: .5em 0;
+        font-family: 'Montserrat';
+        line-height: 1.5em;
+
+        strong {
+            font-weight: 600;
+            a{
+                text-decoration: none;
+                color: $base-color;
+                border-bottom: 1px solid #000;
+            }
+        }
+    }
+
+
+    &__box-accordions{
+        
+
+        .accordion-btn{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: #ffffff;
+            margin: .5em 0;
+            padding: 1em .6em;
+            border: 1px solid $accordions-border;
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-family: "Playfair Display";
+            text-align: left;
+            cursor: pointer;
+            transition: background-color .3s;
+
+            &:hover,&:focus{
+                background-color: rgba($secondary-gold, $alpha: .7);
+            }
+        }
+        
+        .accordion-text{
+            font-size: 1.8rem;
+        }
+        .accordion-info{
+            display: none;
+            .accordion-link{
+                text-decoration: none;
+                color: $base-color;
+            }
+        }
+        .accordion-info-text{
+            padding: 1em .5em;
+            font-size: 1.5rem;
+            border: 1px solid $secondary-gold;
+            
+            .arrow{
+                color: $secondary-gold;
+                font-size: 1.8rem;
+                padding-left: .5em;
+            }
+            
+        }
+        .active{
+            display: block;
+            
+        }
+        
+
+        .accordion-arrow{
+            font-size: 1.5rem;
+        }
+        .arrow-rotate{
+            transform: rotate(180deg);
+        }
+
+        
+    }
+
+}
+
+// GALERIA
+
+.gallery{
+    background-color: rgba($base-color, $alpha: .03);
+    padding: .5em 0 5em;
+    margin-bottom: 5em;
+    
+
+    &__imgs{
+        display: flex;
+        flex-wrap: wrap;
+        // align-items: center;
+        justify-content: center;
+    }
+
+    &__imgs-item{
+        height: 10vh;
+        // width: 50%;
+        object-fit: contain;
+        margin: 1em;
+        // overflow: hidden;
+        transition: transform .3s;
+
+        &:hover{
+            transform: scale(1.07);
+        }
+    }
+}
+
+.about-me{
+
+    &__box{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        
+    }
+    &__box-gallery-image{
+        height: 50vh;
+        width: 75%;
+        object-fit: contain;
+    }
+
+    &__box-description{
+        margin: 4em 2em;
+        .heading{
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: $primary-gold;
+            letter-spacing: 1px;
+        }
+        .heading-under{
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: .5em 0 2em;
+        }
+        
+        .description{
+            font-size: 1.5rem;
+            margin-bottom: 1em;
+            padding: .5em 0 0em;
+        }
+    }
+}
+
+// KONTAKT
+
+.contact{
+    background-color: $base-color;
+    padding-bottom: 8em;
+    .heading-h2{
+        color: #ffffff;
+        &::before, &::after{
+            border-bottom: 1px solid #ffffff;
+        }
+        padding-top: 1.5em;
+    }
+    &__box{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+    }
+
+    &__box-img{
+        height: 25vh;
+        width: 75vw;
+        object-fit: contain;
+        
+    }
+
+    &__box-description{
+        display: flex;
+        flex-direction: column;
+        margin-top: 1em;
+
+        .info{
+            font-size: 1.5rem;           
+            padding-left: 1.5em;
+            margin-bottom: 1em;
+
+            .connect{
+                text-decoration: none;
+                color: #ffffff;
+            }
+
+            .contact-icons{
+                padding-right: 1em;
+                font-size: 2rem;
+                color: $secondary-gold;
+            }
+        }
+    }
+
+    &__box-opening-hours{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid $secondary-gold;
+        height: 50%;
+        width: 90%;
+        padding: 3em;
+        margin-top: 3em;
+
+        .heading{
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 0 2em 1em;
+            white-space: nowrap;
+        }
+
+
+        .working-days{
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            margin: .5em 0;
+        }
+
+        
+    }
+}
+
+// .socials{
+//     height: 9vh;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     align-items: center;
+
+//     .social{
+//         &__link{
+//             padding: 0 1.5em;
+//             text-decoration: none;
+//             font-size: 3rem;
+//             color: $base-color;
+            
+//             .fab{
+//                 transition: color .3s;
+//             }
+//             .fa-facebook:hover{
+//                 color: rgb(24, 119, 242);
+//             }
+
+//             .fa-instagram:hover{
+//                 color: rgb(245,96,64);
+//             }
+//         }
+//     }
+// }
+
+.map{
+    height: 50vh;
+
+    iframe{
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+}
+
+.footer{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: $base-color;
+
+    &__content{
+        display: flex;
+        justify-content: center;
+        color: $secondary-gold;
+        font-size: 1rem;
+    }
+}
+
+// CENNIK
+.prices{
+
+    &__section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 4em auto;
+        width: 100%;
+        max-width: 800px;
+
+    }
+    &__heading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        font-weight: normal;
+        font-family: 'Playfair Display';
+        margin: 2.5em auto 1.5em;
+    }
+
+
+
+    &__section-heading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        font-family: 'Playfair Display';
+        margin: 1.5em 0 .5em;
+    }
+
+    &__section-description{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        text-align: left;
+        line-height: 1.5em;
+        padding: 1em 1.8em 1.2em;
+
+        &--bolder{
+            font-weight: 600;
+        }
+    }
+
+    &__section-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .service-heading, .service-content{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: $primary-gold;
+            padding: 1em 1.3em;
+            margin: 0 1em;
+
+            
+
+           
+        }
+
+        .service-heading{
+            background-color: $base-color;
+        }
+
+
+
+        .service-content{
+            margin: 0 1.3em;
+            font-size: 1.4rem;
+            font-family: 'Montserrat';
+            font-style: normal;
+            color: $base-color;
+            border: 1px solid $accordions-border;
+            
+            &--gray{
+                background-color: #F8F8F8 ;
+            }
+
+            &--group{
+                padding-left: 4em;   
+            }
+            &:hover {
+                background-color: $accordions-border;
+                
+            }
+            
+            
+            .service-price{
+                font-weight: bolder;
+                text-align: right;
+                padding-left: 1em;
+                white-space: nowrap;
+            }
+
+        }
+
+        
+    }
+}
+
+// Zabiegi
+
+.treatments{
+   display: flex;
+   flex-direction: column;
+    &__list{
+        display: flex;
+        flex-direction: column;
+        background-color: $hamburger-layer-color;
+        padding: 0 0 0 1.5em;
+        margin: 2em;
+        ul{
+            margin-bottom: 1em; 
+            li {
+                margin-bottom: .5em;
+                padding-bottom: .5em;
+                font-size: 1.5rem;
+                list-style-position: inside;
+                list-style-type: circle;
+                
+                a{
+                    text-decoration: none;
+                    color: $base-color;
+                }              
+            }
+        }
+    }
+
+    &__list-heading{
+        font-size: 2rem;
+        margin: 1em 0;
+        font-weight: bold;
+    }
+    &__section-img{
+        display: flex;
+        width: 50%;
+        // height: 50%;
+        margin: 2em auto;
+    }
+    &__section-heading{
+        font-size: 2.5rem;
+        text-align: left;
+        text-transform: uppercase;
+        padding: 1em .6em;
+        margin-top: 1em;
+        font-family: "Playfair Display";
+    }
+
+    &__section-headingh4{
+        font-size: 1.8rem;
+        padding-left: .6em;
+        margin-bottom: 1em;
+    }
+
+    &__section-description{
+        font-size: 1.5rem;
+        margin-bottom: 1em;
+        padding: 0 1em;
+        line-height: 1.7em;
+    }
+    &__section-subtitle{
+        font-weight: bold;
+        font-size: 1.7rem;
+        padding: 2em 0 1em 1em;
+    }
+    &__section-list{
+        
+        padding: 0 1em 0 4em;
+        margin-bottom: 1em;
+        
+        li{
+            font-size: 1.5rem;
+            padding: .2em;
+            line-height: 1.7em;
+
+        }
+        .text{
+            font-size: 1.3rem;
+            padding: .2em;
+            margin-bottom: .8em;
+        }
+    }
+}
+
+@media (min-width: 576px){
+    .header {
+        
+        &__slide-txt{
+            font-size: 2.3rem;
+            padding: 1em 2em; 
+        }
+    }
+
+    .gallery{
+        &__imgs-item{
+            height: 15vh;
+        }
+    }
+
+    .contact{
+        &__box-opening-hours{
+            
+            .heading{
+                font-size: 2.5rem;
+            }
+
+            .working-days{
+                font-size: 1.5rem;
+            }
+        }
+    }
+    
+}
+
+@media (min-width: 768px){
+    .header {
+        &__slide-img{
+            height: 50vh;
+        }
+    }
+    .gallery{
+        &__imgs-item{
+            height: 20vh;
+        }
+    }
+    
+    .offers{
+        &__box{
+            flex-direction: row;  
+              
+        }
+        
+        &__box-description{
+            padding-left: 5em;
+        }
+
+        &__box-accordions{
+            .accordion-btn{
+                width: 100%;
+                margin: .3em 10em .3em 0;
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    .about-me{
+        &__box{
+            flex-direction: row;
+            align-items: flex-start;
+        }
+        
+        &__box-gallery-image{
+            padding: 0 6em;
+        }
+        .description{
+            font-size: 1.4rem;
+        }
+    }
+
+    .contact{
+        &__box{
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        &__box-img{
+            height: 20vh;
+            width: 45vw;
+        }
+        &__box-opening-hours{
+            width: 45%;
+            margin-right: 2em;
+        }
+
+    }
+
+    .treatments{
+        flex-direction: row;
+
+        &__list{
+            position: sticky;
+            top: 120px;
+            margin: 1em;
+            padding-right: 2em;
+            height: 50%;
+
+            ul{
+                li{
+                    white-space: nowrap;
+                }
+            }
+        }
+
+    }
+}
+
+
+@media (min-width: 992px){
+    .navbar{
+       
+        &__burger-btn{
+            display: none;
+        }
+
+        &__links{
+            position: static;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: flex-start;
+            height: 80px;
+            transform: translateX(0);
+            opacity: 1;
+             
+        }
+        
+
+    }
+
+    .header {
+
+        &__slide-img{
+            height: 85vh;
+            object-fit: cover;
+        }
+
+        &__slide-txt{
+            font-size: 5rem;
+        }
+    }
+    .heading-h2{
+        
+
+        &::before{
+            margin-right: 2em;
+        }
+
+        &::after{
+            margin-left: 2em;
+        }
+    }
+    
+    .offers{
+        
+        &__h1{
+            font-size: 2.3rem;
+        }
+
+        &__description{
+            font-size: 1.8rem;
+        }
+        
+        &__box-description{
+            padding-left: 8em;
+        }
+        &__box-accordions{
+            .accordion-btn{
+                width: 100%;
+                margin: .3em 16em .3em 0;
+                font-size: 1.8rem;
+            }
+        }
+
+        
+    }
+
+    .about-me{
+        
+        &__box-gallery-image{
+            height: 65vh;
+            padding: 0 10em 0 5em;
+            // object-fit: contain;
+        }
+
+        &__box-description{
+            
+            .heading{
+                font-size: 2.2rem;
+            }
+            .heading-under{
+                font-size: 1.5rem;
+                
+            }
+    
+            .description{
+                font-size: 1.7rem;
+                margin-right: 5em;
+                padding-right: 1em;
+        
+            }
+        }
+    }
+
+    .contact{
+
+        &__box-img{
+            height: 70%;
+            width: 80%;
+            object-fit: contain;
+            padding-right: 10em;
+        }
+        &__box-opening-hours{
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .footer{
+        &__content{
+            font-size: 1.4rem;
+        }
+    }
+}
+
+
